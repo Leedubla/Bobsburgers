@@ -1,0 +1,23 @@
+li {
+    padding: 5px;
+    margin: 5px;
+    background: #b6ada3;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  .create-update-form {
+    padding: 5px;
+    margin: 5px;
+    background: aqua;
+  }
+  
+  .form-group {
+    margin-bottom: 5px;
+  }
+  
+  .column-left{ float: left; width: 33.333%; }
+  .column-right{ float: right; width: 33.333%; }
+  .column-center{ display: inline-block; width: 33.333%; }

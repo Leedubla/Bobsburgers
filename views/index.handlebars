@@ -1,0 +1,112 @@
+{{!-- <h1>Burgers</h1> --}}
+
+{{!-- <h2>Mw=wahahaha</h2> --}}
+
+<ul>
+  {{#each Burgers}}
+  {{#unless devour}}
+  {{> Burgers/Burger-block devour=true}}
+  {{/unless}}
+  {{/each}}
+</ul>
+
+{{!-- <h2>Eaten Burgers</h2> --}}
+
+<ul>
+  {{#each Burgers}}
+  {{!-- eaten --}}
+  {{#if eaten}}
+  {{> Burgers/Burger-block devour=false}}
+  {{/if}}
+  {{/each}}
+</ul>
+
+{{!-- <h2>Add a Burger</h2> --}}
+{{!-- <form class="create-form">
+
+  <div class="form-group">
+    <label for="Bu">Name of Burger:</label>
+    <input type="text" id="Bu" name="type">
+  </div>
+
+  <div class="form-group">
+    <label for="devour">Devour?</label><br>
+    <input type="radio" name="devour" value="1" checked> Eat<br>
+    <input type="radio" name="devour" value="0"> Eaten
+  </div>
+
+  <button type="submit">Add a Burger</button>
+</form> --}}
+<div class="container">
+  <div class="column-center">
+    <form>
+      <div class="form-group">
+        <h1>Burgers</h1>
+        <h2>Add A Burger Here</h2>
+        <label for="">Burgers Name:</label>
+        <input id="name" class="form-control" type="text" placeholder="Burger Name Here:">
+      </div>
+
+      <div class="form-group text-center">
+        <button id="my_button" class="btn btn-outline-success btn-lg" type="button">
+          Add Burger
+        </button>
+      </div>
+    </form>
+  </div>
+
+
+  <div class="column-left">
+    <h3>List of Burgers to Eat</h3>
+    <div id="my_div"></div>
+
+
+
+  </div>
+
+  <div class="column-right">
+    <h3>List of Burgers Eaten</h3>
+    <div id="deleted">
+  </div>
+</div>
+
+
+
+<script>function append_to_div(div_name, data) {
+    document.getElementById(div_name).innerText += data;
+  }
+
+  document.getElementById("my_button")
+    .addEventListener('click', function () {
+
+      var user_name = document.getElementById("name");
+      var value = user_name.value.trim();
+     
+      if (!value)
+        alert("Name Cannot be empty!");
+      else
+        append_to_div("my_div", value + "\n");
+
+      user_name.value = "";
+       var div = document.getElementById("my_div");
+      var button = document.createElement("button");
+      button.id = "delete"
+      button.innerHTML = "Delete Burger";
+      div.appendChild(button);
+    });
+
+
+function append_to_div(div_name, data){ 
+            document.getElementById(div_name).innerText += data; 
+        } 
+          
+        document.getElementById("delete") 
+                .addEventListener('click', function() { 
+              
+            var data = document.getElementById("my_div");  
+                append_to_div("deleted"); 
+              
+            
+        }); 
+           
+</script>
