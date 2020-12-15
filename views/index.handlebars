@@ -1,42 +1,4 @@
-{{!-- <h1>Burgers</h1> --}}
-
-{{!-- <h2>Mw=wahahaha</h2> --}}
-
-<ul>
-  {{#each Burgers}}
-  {{#unless devour}}
-  {{> Burgers/Burger-block devour=true}}
-  {{/unless}}
-  {{/each}}
-</ul>
-
-{{!-- <h2>Eaten Burgers</h2> --}}
-
-<ul>
-  {{#each Burgers}}
-  {{!-- eaten --}}
-  {{#if eaten}}
-  {{> Burgers/Burger-block devour=false}}
-  {{/if}}
-  {{/each}}
-</ul>
-
-{{!-- <h2>Add a Burger</h2> --}}
-{{!-- <form class="create-form">
-
-  <div class="form-group">
-    <label for="Bu">Name of Burger:</label>
-    <input type="text" id="Bu" name="type">
-  </div>
-
-  <div class="form-group">
-    <label for="devour">Devour?</label><br>
-    <input type="radio" name="devour" value="1" checked> Eat<br>
-    <input type="radio" name="devour" value="0"> Eaten
-  </div>
-
-  <button type="submit">Add a Burger</button>
-</form> --}}
+{{!-- set up a container to divide everything into collumns --}}
 <div class="container">
   <div class="column-center">
     <form>
@@ -44,10 +6,12 @@
         <h1>Burgers</h1>
         <h2>Add A Burger Here</h2>
         <label for="">Burgers Name:</label>
+        {{!-- id set for input field to be called later --}}
         <input id="name" class="form-control" type="text" placeholder="Burger Name Here:">
       </div>
 
       <div class="form-group text-center">
+        {{!-- button set with id to be called later --}}
         <button id="my_button" class="btn btn-outline-success btn-lg" type="button">
           Add Burger
         </button>
@@ -58,6 +22,7 @@
 
   <div class="column-left">
     <h3>List of Burgers to Eat</h3>
+    {{!-- div set with id to have data appended --}}
     <div id="my_div"></div>
 
 
@@ -65,29 +30,32 @@
   </div>
 
   <div class="column-right">
+    {{!-- div set with id to have data that was appended to be appended to --}}
     <h3>List of Burgers Eaten</h3>
     <div id="deleted">
   </div>
 </div>
 
 
-
+{{!-- setting div_name and data --}}
 <script>function append_to_div(div_name, data) {
     document.getElementById(div_name).innerText += data;
   }
-
+{{!-- calling button to be called on click --}}
   document.getElementById("my_button")
     .addEventListener('click', function () {
-
+{{!-- grabbing data from the input field --}}
       var user_name = document.getElementById("name");
       var value = user_name.value.trim();
      
       if (!value)
         alert("Name Cannot be empty!");
       else
+      {{!-- appending data to div we set id to --}}
         append_to_div("my_div", value + "\n");
 
       user_name.value = "";
+      {{!-- calling data from my_div and creating a button id set to delet --}}
        var div = document.getElementById("my_div");
       var button = document.createElement("button");
       button.id = "delete"
@@ -95,7 +63,7 @@
       div.appendChild(button);
     });
 
-
+{{!-- calling data from my_div and appending to seperate div --}}
 function append_to_div(div_name, data){ 
             document.getElementById(div_name).innerText += data; 
         } 

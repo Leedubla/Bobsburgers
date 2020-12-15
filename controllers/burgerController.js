@@ -1,8 +1,9 @@
+// requires express
 var express = require("express");
 
 var router = express.Router();
 
-// Import the model (cat.js) to use its database functions.
+// imports the model from burgers.js to use its functiong
 var Burger = require("../models/burgers.js");
 
 // Create all our routes and set up logic within those routes where required.
@@ -44,4 +45,5 @@ router.put("/api/Burgers/:id", function(req, res) {
   });
 });
 
-// Export routes for serve
+// is needed! thanks to max I was able to solve a lot of errors
+module.exports = router;
